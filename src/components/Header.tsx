@@ -10,11 +10,6 @@ export const Header: React.FC = () => {
                     浜田市目安箱
                 </Navbar.Item>
             </Navbar.Brand>
-            <Navbar.Container align="right">
-                <Navbar.Item>浜田市目安箱とは？</Navbar.Item>
-                <Navbar.Item>目安箱</Navbar.Item>
-                <Navbar.Item>問い合わせ</Navbar.Item>
-            </Navbar.Container>
         </Navbar>
     );
 }
