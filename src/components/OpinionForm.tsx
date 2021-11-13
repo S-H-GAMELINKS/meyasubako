@@ -1,12 +1,58 @@
 import React, { useState } from 'react';
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set } from 'firebase/database';
+import sha256 from 'crypto-js/sha256';
 import 'bulma/css/bulma.min.css';
 import { Container, Form, Button } from 'react-bulma-components';
+import { toast } from 'bulma-toast'
 
 export const OpinionForm: React.FC = () => {
     const [userName, setUserName] = useState('');
     const [opinion, setOpinion] = useState('');
     const [mailAddress, setMailAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+
+    const firebaseConfig = {
+        apiKey: process.env.REACT_APP_API_KEY,
+        authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+        databaseURL: process.env.REACT_APP_DB_URL,
+        projectId: process.env.REACT_APP_PROJECT_ID,
+        storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+        messagingSenderId: process.env.REACT_APP_MESSAGEING_SENDER_ID,
+        appId: process.env.REACT_APP_APP_ID
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    const clear = (): void => {
+        setUserName('');
+        setOpinion('');
+        setMailAddress('');
+        setPhoneNumber('');
+    }
+
+    const submit = (): void => {
+        const date = new Date();
+        const db = getDatabase(app);
+
+        set(ref(db, 'opinions/' + sha256(date.toString())), {
+            userName: userName,
+            opinion: opinion,
+            email: mailAddress,
+            phoneNumber: phoneNumber,
+            date: date.toString()
+        });
+
+        clear();
+        toast({
+            message: 'ご意見を承りました！',
+            type: 'is-success',
+            position: 'center',
+            closeOnClick: true,
+            duration: 2000,
+            animate: { in: 'fadeIn', out: 'fadeOut' },
+        })
+    }
 
     return (
         <Container className="p-3">
@@ -59,7 +105,7 @@ export const OpinionForm: React.FC = () => {
                         color="success"
                         value={phoneNumber}
                         onChange={(e: any) => {
-                            return setPhoneNumber(e.valuetarget.value);
+                            return setPhoneNumber(e.target.value);
                         }}
                     >
                     </Form.Input>
@@ -68,7 +114,7 @@ export const OpinionForm: React.FC = () => {
 
             <Form.Field className="mt-5">
                 <Form.Control>
-                    <Button color="success">ご意見を投稿</Button>
+                    <Button color="success" onClick={submit}>ご意見を投稿</Button>
                 </Form.Control>
             </Form.Field>
         </Container>
