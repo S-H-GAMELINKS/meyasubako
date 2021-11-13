@@ -6,6 +6,7 @@ import { Container } from 'react-bulma-components';
 
 import { Header } from './components/Header';
 import { AboutHero } from './components/AboutHero';
+import { OpinionForm } from './components/OpinionForm';
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
       <Header />
       <AboutHero />
       <Container>
+        <hr />
+
+        <OpinionForm />
+
         <hr />
       </Container>
     </div>
