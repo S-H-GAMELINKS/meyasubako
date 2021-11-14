@@ -7,6 +7,7 @@ import { Container } from 'react-bulma-components';
 import { Header } from './components/Header';
 import { AboutHero } from './components/AboutHero';
 import { OpinionForm } from './components/OpinionForm';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 
         <hr />
       </Container>
+      <Footer />
     </div>
   );
 }
