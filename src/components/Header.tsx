@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
             </Navbar.Brand>
             <Navbar.Menu id="navbarMenu" className={menuClass}>
                 <Navbar.Container align="right">
-                    <Navbar.Item href="#">
+                    <Navbar.Item href="/privacy_policy">
                         プライバシーポリシー
                     </Navbar.Item>
                 </Navbar.Container>
