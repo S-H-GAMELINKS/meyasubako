@@ -81,7 +81,7 @@ const ContactForm: React.FC = () => {
         });
 
         clear();
-        showToast('ご意見を承りました！', 'is-success');
+        showToast('お問い合わせを承りました！', 'is-success');
     }
 
     return (
