@@ -25,3 +25,25 @@ export const sendSlack = functions.database.ref("/opinions/{opinionId}")
         text: sendText,
       });
     });
+
+export const sendContactToSlack = functions.database.ref("/contacts/{contactId}")
+    .onCreate(async (snapshot, context) => {
+      const url = functions.config().slack.webhookurl;
+      const webhook = new IncomingWebhook(url);
+      const original = snapshot.val();
+      functions.logger.log("Uppercasing", context.params.contactId, original);
+      functions.logger.log("Contact URL", url);
+
+      let sendText = "";
+
+      sendText += `お名前: ${original.userName}\n `;
+      sendText += `メールアドレス: ${original.email}\n `;
+      sendText += `電話番号: ${original.phoneNumber}\n `;
+      sendText += `問い合わせ内容:\n\n${original.content}\n`;
+
+      functions.logger.log("Send text", sendText);
+
+      await webhook.send({
+        text: sendText,
+      });
+    });
