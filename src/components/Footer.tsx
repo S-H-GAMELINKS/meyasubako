@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bulma/css/bulma.min.css';
 import { Hero, Container } from 'react-bulma-components';
 
 export const Footer: React.FC = () => {

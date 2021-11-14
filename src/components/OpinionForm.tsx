@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from 'firebase/database';
 import sha256 from 'crypto-js/sha256';
-import 'bulma/css/bulma.min.css';
 import { Container, Form, Button } from 'react-bulma-components';
 import { toast } from 'bulma-toast'
 

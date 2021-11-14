@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'bulma/css/bulma.min.css';
 import { Navbar } from 'react-bulma-components';
 
 export const Header: React.FC = () => {
