@@ -89,7 +89,7 @@ export const OpinionForm: React.FC = () => {
             </Form.Field>
 
             <Form.Field>
-                <Form.Label>ご意見</Form.Label>
+                <Form.Label>ご意見<span className="has-text-danger">(必須)</span></Form.Label>
                 <Form.Control>
                     <Form.Textarea
                         color="success"
