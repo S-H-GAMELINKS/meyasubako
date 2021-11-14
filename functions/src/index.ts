@@ -4,7 +4,8 @@ import {IncomingWebhook} from "@slack/webhook";
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
-export const sendOpinionToSlack = functions.database.ref("/opinions/{opinionId}")
+export const sendOpinionToSlack = functions.database
+    .ref("/opinions/{opinionId}")
     .onCreate(async (snapshot, context) => {
       const url = functions.config().slack.webhookurl;
       const webhook = new IncomingWebhook(url);
@@ -26,7 +27,8 @@ export const sendOpinionToSlack = functions.database.ref("/opinions/{opinionId}"
       });
     });
 
-export const sendContactToSlack = functions.database.ref("/contacts/{contactId}")
+export const sendContactToSlack = functions.database
+    .ref("/contacts/{contactId}")
     .onCreate(async (snapshot, context) => {
       const url = functions.config().slack.webhookurl;
       const webhook = new IncomingWebhook(url);
