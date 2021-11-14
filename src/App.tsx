@@ -15,7 +15,6 @@ const App: React.FC = () => {
       </BrowserRouter>
     </div>
   );
-
 }
 
 export default App;
