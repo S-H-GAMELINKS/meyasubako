@@ -9,6 +9,7 @@ import { Footer } from './components/Footer';
 
 import IndexPage from './pages/IndexPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import ContactForm from './pages/ContactForm';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<IndexPage />} />
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+          <Route path="/contact" element={<ContactForm />} />
         </Routes>
       </BrowserRouter>
       <Footer />
