@@ -4,7 +4,7 @@ import {IncomingWebhook} from "@slack/webhook";
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
-export const sendSlack = functions.database.ref("/opinions/{opinionId}")
+export const sendOpinionToSlack = functions.database.ref("/opinions/{opinionId}")
     .onCreate(async (snapshot, context) => {
       const url = functions.config().slack.webhookurl;
       const webhook = new IncomingWebhook(url);
