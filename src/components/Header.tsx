@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.min.css';
-import { Navbar, Heading } from 'react-bulma-components';
+import { Navbar } from 'react-bulma-components';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
