@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from 'firebase/database';
 import sha256 from 'crypto-js/sha256';
 import { Container, Form, Button } from 'react-bulma-components';
-import { toast } from 'bulma-toast'
+import { toast, ToastType } from 'bulma-toast'
 
 export const OpinionForm: React.FC = () => {
     const [userName, setUserName] = useState('');
@@ -23,6 +23,25 @@ export const OpinionForm: React.FC = () => {
 
     const app = initializeApp(firebaseConfig);
 
+    const showToast = (message: string, type: ToastType | undefined): void => {
+        toast({
+            message: message,
+            type: type,
+            position: 'center',
+            closeOnClick: true,
+            duration: 2000,
+            animate: { in: 'fadeIn', out: 'fadeOut' },
+        })
+    }
+
+    const validation = (): boolean => {
+        if (opinion === '') {
+            showToast('ご意見は必ず入力してください', 'is-danger');
+            return false;
+        }
+        return true;
+    }
+
     const clear = (): void => {
         setUserName('');
         setOpinion('');
@@ -31,6 +50,13 @@ export const OpinionForm: React.FC = () => {
     }
 
     const submit = (): void => {
+
+        const isValid = validation();
+
+        if (!isValid) {
+            return;
+        }
+
         const date = new Date();
         const db = getDatabase(app);
 
@@ -43,14 +69,7 @@ export const OpinionForm: React.FC = () => {
         });
 
         clear();
-        toast({
-            message: 'ご意見を承りました！',
-            type: 'is-success',
-            position: 'center',
-            closeOnClick: true,
-            duration: 2000,
-            animate: { in: 'fadeIn', out: 'fadeOut' },
-        })
+        showToast('ご意見を承りました！', 'is-success');
     }
 
     return (
