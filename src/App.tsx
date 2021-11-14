@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bulma/css/bulma.min.css';
+import 'animate.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import IndexPage from './pages/IndexPage';
