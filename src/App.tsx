@@ -8,7 +8,7 @@ import { AboutHero } from './components/AboutHero';
 import { OpinionForm } from './components/OpinionForm';
 import { Footer } from './components/Footer';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
@@ -23,6 +23,7 @@ function App() {
       <Footer />
     </div>
   );
+
 }
 
 export default App;
