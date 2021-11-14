@@ -72,7 +72,7 @@ const ContactForm: React.FC = () => {
         const date = new Date();
         const db = getDatabase(app);
 
-        set(ref(db, '/contact'+ sha256(date.toString())), {
+        set(ref(db, '/contacts'+ sha256(date.toString())), {
             userName: userName,
             content: content,
             email: mailAddress,
