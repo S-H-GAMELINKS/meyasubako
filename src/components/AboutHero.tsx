@@ -4,7 +4,7 @@ import { Hero, Heading } from 'react-bulma-components';
 
 export const AboutHero: React.FC = () => {
     return (
-        <Hero size='large'>
+        <Hero>
             <Hero.Header className='mt-5'>
                 <Heading>浜田市目安箱とは?</Heading>
             </Hero.Header>
