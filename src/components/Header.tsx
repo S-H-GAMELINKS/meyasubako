@@ -28,9 +28,9 @@ export const Header: React.FC = () => {
                     <Navbar.Item href="/contact">
                         問い合わせ
                     </Navbar.Item>
-                    <Navbar.Item href="/privacy_policy">
+                    {/* <Navbar.Item href="/privacy_policy">
                         プライバシーポリシー
-                    </Navbar.Item>
+                    </Navbar.Item> */}
                 </Navbar.Container>
             </Navbar.Menu>
         </Navbar>

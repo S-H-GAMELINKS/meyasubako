@@ -18,7 +18,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IndexPage />} />
-          <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+          {/* <Route path="/privacy_policy" element={<PrivacyPolicy />} /> */}
           <Route path="/contact" element={<ContactForm />} />
         </Routes>
       </BrowserRouter>
