@@ -3,6 +3,7 @@ import { Container } from 'react-bulma-components';
 
 import { AboutHero } from '../components/AboutHero';
 import { OpinionForm } from '../components/OpinionForm';
+import { SnsShare } from '../components/SnsShare';
 
 const IndexPage: React.FC = () => {
   return (
@@ -12,6 +13,8 @@ const IndexPage: React.FC = () => {
         <hr />
 
         <OpinionForm />
+
+        <SnsShare />
 
         <hr />
       </Container>
